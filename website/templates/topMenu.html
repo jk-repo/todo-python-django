@@ -1,0 +1,30 @@
+{% load static %}
+
+<nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row bg-danger text-light">
+    <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center bg-danger text-light">
+        <a class="navbar-brand brand-logo" href="{% url 'dashboard_url' %}"><h1 class="text-white">ToDo APP.</h1></a>
+        <a class="navbar-brand brand-logo-mini" href="{% url 'dashboard_url' %}"><h3 class="text-white">ToDo<br>App.</h3></a>        
+    </div>
+    <div class="navbar-menu-wrapper d-flex align-items-stretch">
+        <ul class="navbar-nav navbar-nav-right">
+            <li class="nav-item nav-profile dropdown">
+                <a class="nav-link dropdown" id="profileDropdown" href="#" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <p class="mb-1 text-light font-weight-bold">Welcome {{request.user.get_full_name}} <i class="mdi mdi-face-profile"></i></p>
+                </a>
+                <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
+                    <a class="dropdown-item" href="{% url 'dashboard_url' %}">
+                        <i class="mdi mdi-view-dashboard me-2 text-warning"></i> Dashboard </a>
+                        <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{% url 'profile_url' %}">
+                        <i class="mdi mdi-account me-2 text-success"></i> Profile </a>
+                    <a class="dropdown-item" href="{% url 'updatePassword_url' %}">
+                        <i class="mdi mdi-key-change me-2 text-info"></i> Update Password </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{% url 'signout_url' %}">
+                        <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>

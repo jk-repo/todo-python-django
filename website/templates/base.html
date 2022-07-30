@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title%}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'website' %}/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="{% static 'website' %}/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="{% static 'website' %}/css/style.css">
+    <link rel="shortcut icon" href="{% static 'website' %}/images/favicon.ico" />
+    {% block css%}{% endblock %}
+</head>
+
+<body>
+
+    {% for message in messages %}
+    <div id="proBanner" class="row p-0 m-0 proBanner shadow-lg  {{ message.tags }} ">
+        <div class="col-md-12 p-0 m-0">
+            <div class="card-body card-body-padding d-flex align-items-center justify-content-between">
+                <div class="ps-lg-1">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <p class="mb-0 font-weight-medium me-3 buy-now-text">{{ message }}</p>
+                    </div>
+                </div>
+                <div class=" d-flex align-items-center justify-content-between">
+                    <button id="bannerClose" class="btn border-0 p-0">
+                        <i class="mdi mdi-close text-white me-0"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    
+    {% block content%}{% endblock %}
+
+    <script src="{% static 'website' %}/vendors/js/vendor.bundle.base.js"></script>
+    <script src="{% static 'website' %}/js/off-canvas.js"></script>
+    <script src="{% static 'website' %}/js/hoverable-collapse.js"></script>
+    <script src="{% static 'website' %}/js/misc.js"></script>
+    {% block js%}{% endblock %}
+</body>
+
+</html>
